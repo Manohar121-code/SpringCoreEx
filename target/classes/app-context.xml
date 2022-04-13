@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="employeeId1" class="com.spring.core.model.Employee">
+		<property name="id" value="1" />
+		<property name="name" value="Pradeep" />
+		<property name="address" ref="addressid1" />
+	</bean>
+
+	<bean id="addressid1" class="com.spring.core.model.Address">
+		<property name="doorNum" value="123"></property>
+		<property name="city" value="Bangalore"></property>
+	</bean>
+
+	<bean id="employeeId2" scope="prototype"
+		class="com.spring.core.model.Employee">
+		<property name="id" value="1" />
+		<property name="name" value="Harish" />
+		<property name="address" ref="addressid2" />
+	</bean>
+
+	<bean id="addressid2" scope="prototype"
+		class="com.spring.core.model.Address">
+		<property name="doorNum" value="345"></property>
+		<property name="city" value="Hyderabad"></property>
+	</bean>
+
+	<bean id="employeeId3" class="com.spring.core.model.Employee">
+		<constructor-arg index="0" value="3"></constructor-arg>
+		<constructor-arg index="1" value="Ravi"></constructor-arg>
+		<constructor-arg index="2" ref="addressId3"></constructor-arg>
+	</bean>
+
+	<bean id="addressId3" class="com.spring.core.model.Address">
+		<constructor-arg index="0" value="8768"></constructor-arg>
+		<constructor-arg index="1" value="Hyderabad"></constructor-arg>
+	</bean>
+</beans>
